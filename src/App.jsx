@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react'
 import "./App.css"; 
 function App() {
   const [data, setData] = useState([]);
-	const [searchThing, setSearchThing] = useState("");
+  const [searchThing, setSearchThing] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const gamesOfChildhood = [
@@ -17,17 +16,20 @@ function App() {
   };
     fetchData();
 },[]);
-
+const filteredData = data.filter(game =>
+  game.name.toLowerCase().includes(searchThing.toLowerCase())
+);
   return (
     <div className='searchComponent'>
-				<input
-					type='text'
-					placeholder='Search game...'
-					value={searchThing}
-					onChange={e => setSearchThing(e.target.value)}
-				/>
-		</div>
-	);
+        <input
+          type='text'
+          placeholder='Search game...'
+          value={searchThing}
+          onChange={e => setSearchThing(e.target.value)}
+        />
+       
+    </div>
+  );
 }
 
 export default App

@@ -27,9 +27,12 @@ const filteredData = data.filter(game =>
           value={searchThing}
           onChange={e => setSearchThing(e.target.value)}
         />
-       
+       <ul>
+        {filteredData.map(game => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
-
 export default App

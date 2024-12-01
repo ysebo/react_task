@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useState } from 'react'
+import { useState } from 'react';
+import "./App.css"; 
 function App() {
   const [data, setData] = useState([]);
 	const [searchThing, setSearchThing] = useState("");
@@ -18,7 +19,14 @@ function App() {
 },[]);
 
   return (
-    <div></div>
+    <div className='searchComponent'>
+				<input
+					type='text'
+					placeholder='Search game...'
+					value={searchThing}
+					onChange={e => setSearchThing(e.target.value)}
+				/>
+		</div>
 	);
 }
 
